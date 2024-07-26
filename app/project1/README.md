@@ -1,7 +1,7 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Fri Jul 26 2024 11:53:57 GMT+0530 (India Standard Time)|
+|**Generation Date and Time**<br>Fri Jul 26 2024 13:21:30 GMT+0530 (India Standard Time)|
 |**App Generator**<br>@sap/generator-fiori-elements|
 |**App Generator Version**<br>1.14.2|
 |**Generation Platform**<br>CLI|
@@ -17,6 +17,7 @@
 |**Enable TypeScript**<br>False|
 |**Add Eslint configuration**<br>False|
 |**Main Entity**<br>Railway|
+|**Navigation Entity**<br>Passenger|
 
 ## project1
 

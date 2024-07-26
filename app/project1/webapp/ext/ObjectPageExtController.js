@@ -16,8 +16,7 @@ sap.ui.define([], function () {
 					usage: "spreadsheetImporter",
 					async: true,
 					componentData: {
-						context: this,
-						activateDraft: true
+						context: this
 					}
 				});
 			this.spreadsheetUpload.openSpreadsheetUploadDialog();
