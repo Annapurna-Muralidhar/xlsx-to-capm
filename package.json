@@ -9,11 +9,13 @@
     "@sap/cds": "^7.9.4",
     "convert-excel-to-json": "^1.7.0",
     "express": "^4",
+    "multer": "^1.4.5-lts.1",
+    "ui5-cc-spreadsheetimporter": "^1.1.1",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^1",
-    "@sap/ux-specification": "^1.120.14"
+    "@sap/ux-specification": "^1.120.15"
   },
   "scripts": {
     "start": "cds-serve",
@@ -32,10 +34,20 @@
           "url": "db.sqlite"
         }
       }
+    },
+    "server": {
+      "proxy": true
+    }
+  },
+  "proxy": {
+    "/uploadExcel": {
+      "target": "http://localhost:4004",
+      "changeOrigin": true
     }
   },
   "sapux": [
     "app/railwaysystem",
+    "app/project1",
     "app/project1",
     "app/project1",
     "app/project1"

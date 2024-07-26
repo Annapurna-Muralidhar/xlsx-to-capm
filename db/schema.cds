@@ -10,6 +10,7 @@ entity Railway : managed {
     berth_selected:String(30);
     doj:Date;
     class:String(30);
+    
 
     
 }

@@ -1,7 +1,7 @@
 {
   "_version": "1.59.0",
   "sap.app": {
-    "id": "project1",
+    "id": "com.satinfotech.railwaytask.project1",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -12,8 +12,8 @@
     "resources": "resources.json",
     "sourceTemplate": {
       "id": "@sap/generator-fiori:lrop",
-      "version": "1.12.2",
-      "toolsId": "23d46ab2-82dc-40be-9f8b-554a8d0c63fc"
+      "version": "1.14.2",
+      "toolsId": "45d0d8d9-03c3-442d-97aa-e3ceb62a60ab"
     },
     "dataSources": {
       "mainService": {
@@ -61,14 +61,13 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "project1.i18n.i18n"
+          "bundleName": "com.satinfotech.railwaytask.project1.i18n.i18n"
         }
       },
       "": {
         "dataSource": "mainService",
         "preload": true,
         "settings": {
-          "synchronizationMode": "None",
           "operationMode": "Server",
           "autoExpandSelect": true,
           "earlyRequests": true
@@ -91,7 +90,7 @@
           "target": "RailwayList"
         },
         {
-          "pattern": "Railway({ID}):?query:",
+          "pattern": "Railway({key}):?query:",
           "name": "RailwayObjectPage",
           "target": "RailwayObjectPage"
         }
@@ -104,6 +103,7 @@
           "options": {
             "settings": {
               "contextPath": "/Railway",
+              "entitySet": "Railway",
               "variantManagement": "Page",
               "navigation": {
                 "Railway": {
@@ -114,13 +114,15 @@
               },
               "controlConfiguration": {
                 "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  },
                   "actions": {
-                    "actionbuttonlist": {
-                      "press": "project1.ext.actionbuttonlist.actionbuttonlist.importdatalist",
-                      "visible": true,
-                      "enabled": true,
-                      "requiresSelection": false,
-                      "text": "import data from excel list"
+                    "spreadsheetUpload": {
+                      "id": "spreadsheetUploadListReportButton",
+                      "text": "Spreadsheet Upload",
+                      "press": "com.satinfotech.railwaytask.project1.ext.ListPageExtController.openSpreadsheetUploadDialog",
+                      "requiresSelection": false
                     }
                   }
                 }
@@ -135,24 +137,18 @@
           "options": {
             "settings": {
               "editableHeaderContent": false,
-              "contextPath": "/Railway",
-              "content": {
-                "header": {
-                  "actions": {
-                    
-                    "actionbuttonObject": {
-                      "press": "project1.ext.actionbuttonObject.actionbuttonObject.importdata",
-                      "visible": true,
-                      "enabled": true,
-                      "requiresSelection": false,
-                      "text": "import data from excel object"
-                    }
-                  }
-                }
-              }
+              "contextPath": "/Railway"
             }
           }
         }
+      }
+    },
+    "resourceRoots": {
+      "cc.spreadsheetimporter.v1_1_1": "./thirdparty/customcontrol/spreadsheetimporter/v1_1_1"
+    },
+    "componentUsages": {
+      "spreadsheetImporter": {
+        "name": "cc.spreadsheetimporter.v1_1_1"
       }
     }
   },
